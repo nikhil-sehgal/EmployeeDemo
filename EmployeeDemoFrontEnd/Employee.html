@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html ng-app="employeeModule">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body ng-controller="employeeController as employeeControllerObj">
+    <div class="alert alert-success">
+        {{employeeControllerObj.headerTitle}}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-info">{{employeeControllerObj.listTitle}}</div>
+                <div ng-include="'Templates/EmployeeList.tmpl.html'"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-info">{{employeeControllerObj.AddNewEmployeeTitle}}</div>
+                <div ng-include="'Templates/EmployeeAddNew.tmpl.html'"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- For Angular -->
+    <script src="Script/angular.min.js"></script>
+    <script src="Script/angular-messages.js"></script>
+    <script src="Script/angular-route.js"></script>
+    <!-- For Bootstrap -->
+    <!--<script src="Script/jquery-1.12.4.min.js"></script>-->
+    <script src="Script/jquery.min.js"></script>
+    <script src="Script/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- For Employee -->
+    <script src="Module/Employee.module.js"></script>
+    <script src="Service/Employee.service.js"></script>
+    <script src="Controller/Employee.controller.js"></script>    
+    <link rel="stylesheet" href="Style/Employee.css" />
+</body>
+</html>

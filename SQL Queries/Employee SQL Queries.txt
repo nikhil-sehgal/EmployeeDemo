@@ -1,0 +1,48 @@
+--create database employeeDB
+CREATE DATABASE employeeDB;
+
+--Table to store Employee Email
+create table tblEmployee(
+Id INT NOT NULL Primary Key IDENTITY,
+Email nvarchar(50) NOT NULL
+)
+
+--Table to store Employee info
+create table tblEmployeeInfo(
+EmployeeInfoId INT NOT NULL IDENTITY Primary Key,
+Id INT NOT NULL,
+FirstName varchar(50) NOT NULL,
+LastName varchar(50) NOT NULL,
+FOREIGN KEY (Id) REFERENCES tblEmployee(Id)
+)
+
+--INSERT QUERIES FOR Employee
+--user 1
+Insert into tblEmployee (Email) values ('Keira.Hudson27@gmail.com')
+Insert into tblEmployeeInfo (Id, FirstName, LastName) values (1,'Wilfredo','Marquardt')
+
+--user 2
+Insert into tblEmployee (Email) values ('Stephanie95@yahoo.com')
+Insert into tblEmployeeInfo (Id, FirstName, LastName) values (2,'Theodora','Davis')
+
+--user 3
+Insert into tblEmployee (Email) values  ('Mandy_Abernathy93@hotmail.com')
+Insert into tblEmployeeInfo (Id, FirstName, LastName) values (3,'Janie','McCullough')
+
+--user 4
+Insert into tblEmployee (Email) values  ('Tyreek81@yahoo.com')
+Insert into tblEmployeeInfo (Id, FirstName, LastName) values (4,'Sherman','Flatley')
+
+--user 5
+Insert into tblEmployee (Email) values ('Aiyana_Lueilwitz@hotmail.com')
+Insert into tblEmployeeInfo (Id, FirstName, LastName) values (5 ,'Stanton','Damore')
+
+--SELECT QUERIES 
+Select * from dbo.tblEmployee
+Select * from dbo.tblEmployeeInfo
+
+--SELECT Query using Join
+Select emp.Id, empInfo.Id, emp.Email, empInfo.FirstName, empInfo.LastName
+from dbo.tblEmployee emp join
+dbo.tblEmployeeInfo empInfo on
+emp.Id = EmpInfo.Id

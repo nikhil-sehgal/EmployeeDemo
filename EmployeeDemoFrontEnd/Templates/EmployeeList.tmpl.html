@@ -1,0 +1,24 @@
+﻿<div>
+    <input type="text" placeholder="search Employee" class="form-control" 
+           ng-model="employeeControllerObj.employees.searchText">
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="employeeData in employeeControllerObj.employee | 
+            filter: employeeControllerObj.employees.searchText">
+            <td>{{employeeData.email}}</td>
+            <td >{{employeeData.firstName}}</td>
+            <td >{{employeeData.lastName}}</td>
+            <td ng-click="employeeControllerObj.deleteEmployee(employeeData.email)" class="glyphicon glyphicon-remove"></td>            
+        </tr>        
+    </tbody>
+</table>
